@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="mainNav">
+    <a class="navbar-brand" routerLink="/">Platzisquare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+    
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item mr-4">
+                <a  routerLinkActive="active" class="nav-link" routerLink="/lugares">Lugares</a>
+            </li>
+            <li class="nav-item mr-4">
+                <a  routerLinkActive="active" class="nav-link" routerLink="/contacto">Contacto</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-4">
+                <ng-container *ngIf="sessionService.active(); else elseTemplate">
+                        <button class="btn btn-warning" (click)="logout()">Cerrar Sessión</button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                        <a routerLink="/login" class="btn btn-warning">Iniciar Sessión</a>
+                </ng-template>
+            </li>   
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+
+ 
+
+
+

@@ -1,0 +1,55 @@
+<div class="container">
+        <div class="row">
+         <div class="col-md-12 my-5">
+                <div class="breadcrumb mt-4"><a routerLink="/">Home</a> &nbsp;/ Crear</div>
+             
+             <h4>Crear Lugar</h4>
+             <form #usuarioForm="ngForm" (ngSubmit)="createPlace()">
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre del lugar" required [(ngModel)]="place.name" #name="ngModel" [ngModelOptions]="{standalone: true}">
+                    <span *ngIf="!name.valid && name.touched" class="text-danger">El nombre es obligatorio*</span>
+                </div>
+                <div class="form-group">
+                    <label for="near">Distancia</label>
+                    <select class="form-control" id="near" required [(ngModel)]="place.near" #near="ngModel" [ngModelOptions]="{standalone: true}">
+                        <option value="1"> Muy cercano</option>
+                        <option value="2"> Cercano</option>
+                        <option value="3"> Lejos</option>
+                    </select>
+                    <span *ngIf="!near.valid && near.touched" class="text-danger">La distancia es obligatoria*</span>
+                </div>
+                <div class="form-group">
+                    <label for="distancy">Distancia (km)</label>
+                    <input type="number" class="form-control" id="distancy" placeholder="Distancia en metros" required [(ngModel)]="place.distancy" #distancy="ngModel"  [ngModelOptions]="{standalone: true}">
+                    <span *ngIf="!distancy.valid && distancy.touched" class="text-danger">La distancia es obligatoria*</span>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripcion</label>
+                    <textarea  id="description" rows="8"  class="form-control" placeholder="Descripcion" required [(ngModel)]="place.description"  #description="ngModel" [ngModelOptions]="{standalone: true}"></textarea>
+                    <span *ngIf="!description.valid && description.touched" class="text-danger">La descripcion es obligatoria*</span>
+                </div>
+                <div class="form-group">
+                    <label for="pay">Plan</label>
+                    <select class="form-control" id="pay" required [(ngModel)]="place.pay"  #pay="ngModel" [ngModelOptions]="{standalone: true}">
+                    <option value="gratuito"> Gratuito</option>
+                    <option value="pagado"> Pagado</option>
+                    </select>
+                    <span *ngIf="!pay.valid && pay.touched" class="text-danger">El plan es obligatorio*</span>
+                </div>
+                <div class="form-group">
+                    <label for="active">Estatus</label>
+                    <select class="form-control" id="active" required [(ngModel)]="place.active" #active="ngModel" [ngModelOptions]="{standalone: true}">
+                    <option value="true"> Activo</option>
+                    <option value="false"> Inactivo</option>
+                    </select>
+                    <span *ngIf="!active.valid && active.touched" class="text-danger">El estatus es obligatorio*</span>
+                </div>
+                <hr>
+                <button class="btn btn-primary">Crear</button>
+                <a class="btn btn-secondary" routerLink="/" >Cancelar</a>
+            </form>
+         </div>
+        </div>
+     </div>
