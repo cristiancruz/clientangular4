@@ -10,11 +10,8 @@ export class AppComponent {
 
   constructor(private sessionService: SessionService) {
 
-    // localStorage.setItem('currentUser', JSON.stringify({name: 'Cristian', email: 'cristian@apto.mx'}));
-
   }
   logout() {
     this.sessionService.logout();
   }
 }
-

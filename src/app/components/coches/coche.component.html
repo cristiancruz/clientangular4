@@ -1,0 +1,42 @@
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Componente de coche</h4>
+            <form #formCoche="ngForm" (ngSubmit)="enviarDatos(); formCoche.reset();">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required>
+                    <span *ngIf="!nombre.valid && nombre.touched" class="text-danger d-block">El nombre es obligatorio*</span>
+
+                    <label for="caballaje">Caballaje</label>
+                    <input class="form-control" type="text" name="caballaje" #caballaje="ngModel" [(ngModel)]="coche.caballaje" required pattern="[0-9]+">
+                    <span *ngIf="!caballaje.valid && caballaje.touched" class="text-danger d-block">El caballaje es obligatorio*</span>
+
+                    <label for="color">Color</label>
+                    <input class="form-control" type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required pattern="[a-zA-Z#]+">
+                    <span *ngIf="!color.valid && color.touched" class="text-danger d-block">El nombre es obligatorio*</span>
+
+                    <br/>
+                    <input type="submit" value="Guardar"  class="btn btn-primary" [disabled]="!formCoche.form.valid">
+                  </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h4>Autos:</h4>
+            <ul>
+              <li *ngFor="let coche of coches; let i = index">  {{coche.nombre}} - {{coche.caballaje}} - {{coche.color}}</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Post:</h4>
+            <ul *ngIf="articulos">
+                <li *ngFor="let articulo of articulos; let i = index">
+                  <p><strong>Titulo:</strong> {{articulo.title}}</p>
+                  <p><strong>Descripción:</strong> {{articulo.body}}</p>
+                  <hr>
+                </li>
+            </ul>
+            <span *ngIf="!articulos">Cargando...</span>
+        </div>
+    </div>
+</div>

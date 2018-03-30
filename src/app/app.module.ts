@@ -1,3 +1,4 @@
+import { RequestService } from './services/request.service';
 import { LoginComponent } from './components/login/login.component';
 import { AuthguardService } from './services/authguard.service';
 import { EditPlaceComponent } from './components/edit_place/edit_place.component';
@@ -25,12 +26,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SessionService } from './services/session.service';
+import { CocheComponent } from './components/coches/coche.component';
 
 
 
-const appRoutes: Routes = [
+const appRoutes = [
   {path: '', component: PlaceComponent},
   {path: 'lugares', component: PlaceComponent},
+  {path: 'coche', component: CocheComponent},
   {path: 'detalle/:id', component: DetailComponent},
   {path: 'contacto', component: ContactComponent},
   {path: 'login', component: LoginComponent},
@@ -49,10 +52,10 @@ const appRoutes: Routes = [
     ContactComponent,
     CreatePlaceComponent,
     EditPlaceComponent,
-    LoginComponent
+    LoginComponent,
+    CocheComponent
   ],
   imports: [
-
     HttpClientModule,
     BrowserModule,
     FormsModule,
@@ -74,7 +77,8 @@ const appRoutes: Routes = [
     ApiService,
     MessageToastViewService,
     AuthguardService,
-    SessionService
+    SessionService,
+    RequestService
   ],
   bootstrap: [AppComponent]
 })

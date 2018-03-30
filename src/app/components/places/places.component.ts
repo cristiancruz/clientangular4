@@ -5,6 +5,7 @@ import { MessageToastViewService } from '../../services/messagetoas.service';
 import { cleanSession } from 'selenium-webdriver/safari';
 
 
+
 @Component({
   selector: 'app-places',
   templateUrl: './places.component.html',
@@ -27,6 +28,7 @@ export class PlaceComponent {
        },
       error => {
          console.log(<any>error);
+         this.messageToastViewService.showMessagError('Aviso', 'No se pudo consultar el listado de lugares.');
         }
     );
 
@@ -60,4 +62,3 @@ export class PlaceComponent {
 
   }
 }
-
